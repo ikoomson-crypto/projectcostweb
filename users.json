@@ -1,0 +1,79 @@
+[
+  {
+    "id": "d546d316-c6dd-4ddf-ac99-9959b09477a6",
+    "username": "admin",
+    "password_hash": "scrypt:32768:8:1$HTCUVT1EzTpy7zXL$b6736e28af98826f8549125b6a035a1f0f0b0e9c6a47fbdaae635d61c75d99373d831770b16a5318b09b60cb1391850ca85b6fd65966aa6d846b4f8b845adafd",
+    "email": "admin@example.com",
+    "full_name": "Administrator",
+    "role": "admin",
+    "created_date": "2026-05-28T04:28:18.932566",
+    "last_login": "2026-05-31T23:14:20.522209",
+    "is_active": true
+  },
+  {
+    "id": "9b04bb38-00f9-4abc-9e2a-0263ebef97d4",
+    "username": "ikoomson",
+    "password_hash": "scrypt:32768:8:1$e9V05vHWv3BVqS95$6a1a9671946164344c05175120a170e221114cefa792e4e16695e9eee4f399f1c21d9b9f04f368b1904a0e7fc15884de893474871a4089246b46277bc94fb4c4",
+    "email": "isaac.koomson@kulana.net",
+    "full_name": "Isaac Koomson",
+    "role": "user",
+    "created_date": "2026-05-29T12:11:12.508601",
+    "last_login": "2026-05-29T12:11:51.209615",
+    "is_active": true
+  },
+  {
+    "id": "487e0eeb-40b9-4cc1-b373-b8bf2f51d6ce",
+    "username": "tech",
+    "password_hash": "scrypt:32768:8:1$ctvMskSG7ZNxdv0Q$de543829e9be4ff1beacb20b5b5f22a02c012ef55510e0f9d17ec3c285e5a2c6bf500bec6e771125a426ce5877a058a9a146add5dc3f6e04b6291177040692e6",
+    "email": "",
+    "full_name": "",
+    "role": "technical_lead",
+    "created_date": "2026-05-29T12:14:36.689930",
+    "last_login": "2026-05-29T12:15:55.967613",
+    "is_active": true
+  },
+  {
+    "id": "476e6905-88b1-40da-be3c-072fc0819343",
+    "username": "viewer",
+    "password_hash": "scrypt:32768:8:1$pKJFoZXJNA1OPRxq$55317b0bfd01b53bb0eb2f1500fd946c6ea1e22a050df7d828042f31c15596f1496b3d9d617e891d8f1ceece14ff84f3813c6c758d8c2195d9b72314881c23c4",
+    "email": "viewer@example.com",
+    "full_name": "Viewer User",
+    "role": "viewer",
+    "created_date": "2026-05-29T13:46:34.236567",
+    "last_login": null,
+    "is_active": true
+  },
+  {
+    "id": "90e04752-41ce-4c54-8fe2-99af7d688d7d",
+    "username": "technical_lead",
+    "password_hash": "scrypt:32768:8:1$12QVKOALurN1pxkU$2b3128a394a686f15f743cba751855620140e42713a64dc5d625205922b1bbbbbacde0b24914fdb312417b78bb9b4c6dede103de2bf825aa3e5bea81d99abd47",
+    "email": "tech@example.com",
+    "full_name": "Technical Lead",
+    "role": "technical_lead",
+    "created_date": "2026-05-29T13:46:34.519024",
+    "last_login": null,
+    "is_active": true
+  },
+  {
+    "id": "74d370a4-d0f1-458c-8bd9-bd488ec43d84",
+    "username": "procurement",
+    "password_hash": "scrypt:32768:8:1$4gQn2tOCvZbfqm59$05064e88b66c2d7553ed149fe1e53402916fc4ed468f152031422385180208f0233d4a6e34c5456bbd7630e5f3f81b19eb79784a1b0fd5e82ae10fb92203b77d",
+    "email": "proc@example.com",
+    "full_name": "Procurement Manager",
+    "role": "procurement",
+    "created_date": "2026-05-29T13:46:34.754714",
+    "last_login": null,
+    "is_active": true
+  },
+  {
+    "id": "414f6fb9-2caa-43bc-b5b9-b2a0100a66eb",
+    "username": "ceo",
+    "password_hash": "scrypt:32768:8:1$BVRHoZMYyqt9FtdT$9aeaf7bb849d89745f35cfaf012087212e677aff4e04b833ff597e43d854a0b8af06c72f2105441f7394217b92f5b66cef5115b4aa278d5aa03f7d3257aee40e",
+    "email": "ceo@example.com",
+    "full_name": "CEO",
+    "role": "ceo",
+    "created_date": "2026-05-29T13:46:34.975472",
+    "last_login": null,
+    "is_active": true
+  }
+]
