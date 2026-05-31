@@ -2096,5 +2096,12 @@ if __name__ == '__main__':
             print(f"Default {user_data[2]} user created: Username: {user_data[0]}, Password: {user_data[1]}")
             print("=" * 50)
 
+    if not get_user_by_username("admin"):
+        create_user(
+            username="admin",
+            password="Admin123!",
+            role="admin"
+        )
+
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
