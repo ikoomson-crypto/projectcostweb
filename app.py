@@ -1974,6 +1974,108 @@ def import_data(tab_type):
         return jsonify({"error": str(e)}), 400
 
 
+# Add this function right after your load_settings() function
+def initialize_render_data():
+    """Initialize all required data for Render deployment"""
+    print("Initializing application data for Render...")
+
+    # Initialize users
+    users = load_users()
+
+    # Create/update admin
+    admin = None
+    for user in users:
+        if user.get('username') == 'admin':
+            admin = user
+            break
+
+    if admin:
+        admin['password_hash'] = generate_password_hash('admin123')
+        admin['is_active'] = True
+        print("Admin password reset to: admin123")
+    else:
+        users.append({
+            'id': str(uuid.uuid4()),
+            'username': 'admin',
+            'password_hash': generate_password_hash('admin123'),
+            'email': 'admin@example.com',
+            'full_name': 'Administrator',
+            'role': 'admin',
+            'created_date': datetime.now().isoformat(),
+            'last_login': None,
+            'is_active': True
+        })
+        print("Admin user created: admin / admin123")
+
+    # Create other default users
+    default_users = [
+        ('viewer', 'viewer123', 'Viewer User', 'viewer'),
+        ('technical_lead', 'tech123', 'Technical Lead', 'technical_lead'),
+        ('procurement', 'proc123', 'Procurement Manager', 'procurement'),
+        ('ceo', 'ceo123', 'CEO', 'ceo')
+    ]
+
+    for username, password, full_name, role in default_users:
+        exists = False
+        for user in users:
+            if user.get('username') == username:
+                user['password_hash'] = generate_password_hash(password)
+                user['is_active'] = True
+                exists = True
+                break
+        if not exists:
+            users.append({
+                'id': str(uuid.uuid4()),
+                'username': username,
+                'password_hash': generate_password_hash(password),
+                'email': f'{username}@example.com',
+                'full_name': full_name,
+                'role': role,
+                'created_date': datetime.now().isoformat(),
+                'last_login': None,
+                'is_active': True
+            })
+            print(f"Created user: {username} / {password}")
+
+    save_users(users)
+
+    # Initialize settings
+    settings = load_settings()
+    if not settings.get('default_currency'):
+        settings['default_currency'] = 'USD'
+        save_settings(settings)
+
+    # Initialize exchange rates if needed
+    rates_file = 'exchange_rates.json'
+    if not os.path.exists(rates_file):
+        default_rates = {
+            'USD': 1.0, 'EUR': 0.85, 'GBP': 0.73, 'JPY': 110.0,
+            'CNY': 6.45, 'INR': 74.0, 'GHS': 12.5, 'NGN': 410.0,
+            'ZAR': 14.5, 'CAD': 1.25, 'AUD': 1.35
+        }
+        with open(rates_file, 'w') as f:
+            json.dump(default_rates, f, indent=2)
+        print("Created default exchange rates")
+
+    print("=" * 50)
+    print("RENDER DEPLOYMENT READY")
+    print("Login credentials:")
+    print("  Admin: admin / admin123")
+    print("  Viewer: viewer / viewer123")
+    print("  Technical Lead: technical_lead / tech123")
+    print("  Procurement: procurement / proc123")
+    print("  CEO: ceo / ceo123")
+    print("=" * 50)
+
+
+# Then in your main block:
+if __name__ == '__main__':
+    repair_projects_file()
+    initialize_render_data()  # Call this instead of individual functions
+
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
+
 if __name__ == '__main__':
     repair_projects_file()
 
